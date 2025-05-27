@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VenomAI - Projects</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-white">
+  <!-- Header Section -->
+  <header class="bg-black bg-opacity-70 py-4">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <div class="text-3xl font-bold text-green-400">VenomAI</div>
+      <nav class="space-x-4 flex items-center">
+        <a href="dashboard.html" class="hover:text-green-400">Home</a>
+        <a href="about.html" class="hover:text-green-400">About</a>
+        <a href="services.html" class="hover:text-green-400">Services</a>
+        <a href="projects.html" class="hover:text-green-400">Projects</a>
+        <a href="testimonials.html" class="hover:text-green-400">Testimonials</a>
+        <a href="blog.html" class="hover:text-green-400">Blog</a>
+        <a href="contact.html" class="hover:text-green-400">Contact</a>
+
+        <!-- Profile Icon Button -->
+        <div class="relative ml-6">
+          <button id="profile-button" aria-label="User Profile" class="focus:outline-none">
+            <svg class="w-8 h-8 text-green-400 hover:text-green-600" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+            </svg>
+          </button>
+
+          <!-- Profile Dropdown Modal -->
+          <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-gray-800 rounded-md shadow-lg z-50 p-4">
+            <h3 class="text-lg font-semibold text-green-400 mb-4">My Profile</h3>
+            <div id="auth-buttons" class="flex space-x-2 mb-4">
+              <a href="register.html" id="btn-register" class="bg-green-600 hover:bg-green-700 text-white text-sm py-1 px-3 rounded inline-block text-center">Register</a>
+              <a href="login.html" id="btn-login" class="bg-green-600 hover:bg-green-700 text-white text-sm py-1 px-3 rounded inline-block text-center">Login</a>
+            </div>
+            <form id="profile-form" class="space-y-4 hidden">
+              <div class="flex items-center space-x-4">
+                <img id="profile-photo" src="" alt="Profile Photo" class="w-16 h-16 rounded-full object-cover border-2 border-green-400" />
+                <input type="file" id="profile-photo-input" accept="image/*" class="text-white" />
+              </div>
+              <label for="profile-name" class="block text-gray-300 font-semibold">Full Name</label>
+              <input type="text" id="profile-name" name="profile-name" required
+                     class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <label for="profile-email" class="block text-gray-300 font-semibold">Email</label>
+              <input type="email" id="profile-email" name="profile-email" required
+                     class="w-full px-3 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
+              <button type="submit" class="w-full bg-green-500 hover:bg-green-600 py-2 rounded font-bold transition">Update Profile</button>
+            </form>
+            <div id="profile-message" class="text-center mt-4"></div>
+
+            <div class="mt-6">
+              <h4 class="text-md font-semibold text-green-400 mb-2">My Projects</h4>
+              <ul id="projects-list" class="list-disc list-inside text-gray-300 mb-4 max-h-32 overflow-y-auto">
+                <!-- User projects will be listed here -->
+              </ul>
+
+              <h4 class="text-md font-semibold text-green-400 mb-2">My Templates</h4>
+              <ul id="templates-list" class="list-disc list-inside text-gray-300 mb-4 max-h-32 overflow-y-auto">
+                <!-- User templates will be listed here -->
+              </ul>
+
+              <h4 class="text-md font-semibold text-green-400 mb-2">Code History</h4>
+              <ul id="code-history-list" class="list-disc list-inside text-gray-300 max-h-32 overflow-y-auto">
+                <!-- User code history will be listed here -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <!-- Projects Section -->
+  <main class="max-w-6xl mx-auto px-6 py-16">
+    <h1 class="text-4xl font-extrabold text-green-400 mb-8 text-center">Our Projects</h1>
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="glass p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">AI Chatbot Platform</h3>
+        <p class="text-gray-300">Developed a scalable AI chatbot platform for customer support automation.</p>
+      </div>
+      <div class="glass p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Predictive Analytics Tool</h3>
+        <p class="text-gray-300">Created a predictive analytics tool to forecast market trends using AI models.</p>
+      </div>
+      <div class="glass p-6 rounded-lg">
+        <h3 class="text-xl font-semibold mb-2">Image Recognition System</h3>
+        <p class="text-gray-300">Built an AI-powered image recognition system for quality control in manufacturing.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 px-6 mt-16">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-green-400 font-bold mb-4">Company</h3>
+        <ul class="space-y-2">
+          <li><a href="about.html" class="hover:text-green-400 transition">About</a></li>
+          <li><a href="#" class="hover:text-green-400 transition">Careers</a></li>
+          <li><a href="#" class="hover:text-green-400 transition">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-green-400 font-bold mb-4">Services</h3>
+        <ul class="space-y-2">
+          <li><a href="services.html" class="hover:text-green-400 transition">Custom AI Software Development</a></li>
+          <li><a href="services.html" class="hover:text-green-400 transition">AI Tools and Plugins for Business</a></li>
+          <li><a href="services.html" class="hover:text-green-400 transition">AI Consultation & Strategy Planning</a></li>
+          <li><a href="services.html" class="hover:text-green-400 transition">AI Integration for Web & Mobile Apps</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-green-400 font-bold mb-4">Stay Connected</h3>
+        <form class="flex flex-col space-y-4">
+          <input type="email" placeholder="Your email" class="px-3 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <button type="submit" class="bg-green-600 hover:bg-green-700 py-2 rounded font-bold transition">Subscribe</button>
+        </form>
+      </div>
+      <div>
+        <h3 class="text-green-400 font-bold mb-4">Contact</h3>
+        <p>VenomAI: Our company is You and I.</p>
+        <div class="flex space-x-4 mt-4">
+          <a href="#" aria-label="Twitter" class="hover:text-green-400 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 01-3.14.86 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook" class="hover:text-green-400 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12a10 10 0 10-11.5 9.87v-7h-2v-3h2v-2c0-2 1-3 3-3h2v3h-2c-.5 0-1 .5-1 1v2h3l-1 3h-2v7A10 10 0 0022 12z"/></svg>
+          </a>
+          <a href="#" aria-label="LinkedIn" class="hover:text-green-400 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 3a2 2 0 110 4 2 2 0 010-4z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/dashboard-profile.js"></script>
+</body>
+</html>
