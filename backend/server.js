@@ -10,8 +10,8 @@ const contactRoutes = require('./routes/contactRoutes');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Replace with your actual MongoDB connection string
-const MONGODB_URI = 'mongodb://localhost:27017/venom';
+// Use environment variable for MongoDB URI with fallback
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/venom';
 
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
