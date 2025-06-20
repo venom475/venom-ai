@@ -7,6 +7,7 @@ const modelRoutes = require('./routes/modelRoutes');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const { verify } = require('./oauthConfig');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -29,6 +30,31 @@ app.use(express.json());
 const path = require('path');
 app.use(express.static(path.join(__dirname, '..')));
 app.use(express.static(path.resolve(__dirname, '../..')));
+
+// Google OAuth login endpoint
+app.post('/api/google-login', async (req, res) => {
+  const { token } = req.body;
+  try {
+    const payload = await verify(token);
+    const { sub, email, name, picture } = payload;
+
+    // Check if user exists, else create new user
+    let user = await User.findOne({ googleId: sub });
+    if (!user) {
+      user = new User({
+        googleId: sub,
+        email,
+        username: name,
+        photo: picture,
+      });
+      await user.save();
+    }
+    res.json({ message: 'Login successful', userId: user._id });
+  } catch (error) {
+    console.error('Google login error:', error);
+    res.status(401).json({ error: 'Invalid Google token' });
+  }
+});
 
 // Root route to confirm server is running
 app.get('/', (req, res) => {
