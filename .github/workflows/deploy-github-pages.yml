@@ -8,6 +8,10 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
     - name: Checkout repository
@@ -18,16 +22,23 @@ jobs:
       with:
         node-version: '16'
 
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Install cpy
+      run: npm install --no-save cpy
+
     - name: Copy frontend files to docs directory
       run: |
         rm -rf docs
         mkdir docs
-        cp -r *.html css js public docs/
+        npx cpy "**/*.{html,css,js,jpg,jpeg,png,gif,svg}" css js public docs --parents
         # Remove backend and other non-frontend files if any
         # Adjust this command if needed to include all frontend assets
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
+        # Use the automatically provided GitHub token for authentication
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs
