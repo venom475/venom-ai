@@ -31,6 +31,11 @@ const path = require('path');
 app.use(express.static(path.join(__dirname, '..')));
 app.use(express.static(path.resolve(__dirname, '../..')));
 
+// Serve static files from backend/js, backend/css, and backend/public directories
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
 // Google OAuth login endpoint
 app.post('/api/google-login', async (req, res) => {
   const { token } = req.body;

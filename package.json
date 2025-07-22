@@ -2,5 +2,8 @@
   "dependencies": {
     "multer": "^2.0.0",
     "openai": "^4.103.0"
+  },
+  "devDependencies": {
+    "cpy": "^11.1.0"
   }
 }

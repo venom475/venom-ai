@@ -3,16 +3,51 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch('/api/blog')
     .then(response => response.json())
     .then(posts => {
-      const blogSection = document.querySelector('main section');
-      blogSection.innerHTML = ''; // Clear existing static content
+      const uploadedBlogsSection = document.getElementById('uploaded-blogs');
+      uploadedBlogsSection.innerHTML = ''; // Clear existing content
       posts.forEach(post => {
         const article = document.createElement('article');
-        article.className = 'glass p-6 rounded-lg';
+        article.className = 'glass p-6 rounded-lg relative';
         article.innerHTML = `
           <h2 class="text-xl font-semibold mb-2">${post.title}</h2>
           <p class="text-gray-300">${post.summary}</p>
+          ${post.photo ? `<img src="${post.photo}" alt="${post.title}" class="rounded-lg mb-4" />` : ''}
+          <button class="delete-btn absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white px-2 py-1 rounded text-sm">Delete</button>
         `;
-        blogSection.appendChild(article);
+        uploadedBlogsSection.appendChild(article);
+      });
+
+      // Add event listeners for delete buttons
+      const deleteButtons = uploadedBlogsSection.querySelectorAll('.delete-btn');
+      deleteButtons.forEach(button => {
+        button.addEventListener('click', async (e) => {
+          const article = e.target.closest('article');
+          const title = article.querySelector('h2').textContent;
+
+          // Find the post ID by matching title (assuming titles are unique)
+          const post = posts.find(p => p.title === title);
+          if (!post) {
+            alert('Blog post not found');
+            return;
+          }
+
+          if (!confirm(`Are you sure you want to delete the blog post "${title}"?`)) {
+            return;
+          }
+
+          try {
+            const response = await fetch(`/api/blog/${post._id}`, {
+              method: 'DELETE'
+            });
+            if (response.ok) {
+              article.remove();
+            } else {
+              alert('Failed to delete blog post');
+            }
+          } catch (error) {
+            alert('Error deleting blog post');
+          }
+        });
       });
     })
     .catch(error => {

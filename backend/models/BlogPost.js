@@ -5,6 +5,7 @@ const blogPostSchema = new mongoose.Schema({
   summary: { type: String, required: true },
   content: { type: String },
   author: { type: String },
+  photo: { type: String },
   publishedDate: { type: Date, default: Date.now }
 });
 

@@ -78,8 +78,26 @@
   <main class="max-w-6xl mx-auto px-6 py-16">
     <h1 class="text-4xl font-extrabold text-green-400 mb-8 text-center">Latest Insights</h1>
 
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <article class="glass p-6 rounded-lg">
+        <h2 class="text-xl font-semibold mb-2">AI Trends in 2025</h2>
+        <img src="public/austin-distel-wawEfYdpkag-unsplash.jpg" alt="AI Trends" class="rounded-lg mb-4" />
+        <p class="text-gray-300">Exploring the upcoming trends and innovations in artificial intelligence for the year 2025.</p>
+      </article>
+      <article class="glass p-6 rounded-lg">
+        <h2 class="text-xl font-semibold mb-2">Machine Learning Best Practices</h2>
+        <img src="public/Machine Learning Best Practices.jpg" alt="Machine Learning Best Practices" class="rounded-lg mb-4" />
+        <p class="text-gray-300">A guide to effective machine learning techniques and methodologies for business applications.</p>
+      </article>
+      <article class="glass p-6 rounded-lg">
+        <h2 class="text-xl font-semibold mb-2">AI Ethics and Responsibility</h2>
+        <img src="public/AI Ethics and Responsibility.jpg" alt="AI Ethics and Responsibility" class="rounded-lg mb-4" />
+        <p class="text-gray-300">Understanding the ethical considerations and responsibilities in AI development and deployment.</p>
+      </article>
+    </section>
+
     <!-- Blog Post Submission Form -->
-    <section class="mb-12 glass p-6 rounded-lg max-w-3xl mx-auto">
+    <section class="mb-12 glass p-6 rounded-lg max-w-3xl mx-auto mt-12">
       <h2 class="text-2xl font-semibold mb-4 text-green-400">Submit a New Blog Post</h2>
       <form id="blog-post-form" enctype="multipart/form-data" class="space-y-4 text-gray-300">
         <div>
@@ -107,22 +125,9 @@
       <div id="form-message" class="mt-4 text-center"></div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <article class="glass p-6 rounded-lg">
-        <h2 class="text-xl font-semibold mb-2">AI Trends in 2025</h2>
-        <img src="public/austin-distel-wawEfYdpkag-unsplash.jpg" alt="AI Trends" class="rounded-lg mb-4" />
-        <p class="text-gray-300">Exploring the upcoming trends and innovations in artificial intelligence for the year 2025.</p>
-      </article>
-      <article class="glass p-6 rounded-lg">
-        <h2 class="text-xl font-semibold mb-2">Machine Learning Best Practices</h2>
-        <img src="public/Machine Learning Best Practices.jpg" alt="Machine Learning Best Practices" class="rounded-lg mb-4" />
-        <p class="text-gray-300">A guide to effective machine learning techniques and methodologies for business applications.</p>
-      </article>
-      <article class="glass p-6 rounded-lg">
-        <h2 class="text-xl font-semibold mb-2">AI Ethics and Responsibility</h2>
-        <img src="public/AI Ethics and Responsibility.jpg" alt="AI Ethics and Responsibility" class="rounded-lg mb-4" />
-        <p class="text-gray-300">Understanding the ethical considerations and responsibilities in AI development and deployment.</p>
-      </article>
+    <!-- Uploaded Blogs Section -->
+    <section id="uploaded-blogs" class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-6 py-16">
+      <!-- Dynamically loaded blog posts will appear here -->
     </section>
   </main>
 
