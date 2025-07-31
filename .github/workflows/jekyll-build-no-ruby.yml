@@ -1,33 +1,13 @@
-name: Build and Deploy without Ruby
+name: Disabled build and deploy without Ruby
 
 on:
   push:
     branches:
-      - main
+      - no-trigger-branch
 
 jobs:
-  build:
+  disabled:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build static site (if applicable)
-      run: |
-        # Add your static site build commands here if any
-        echo "No Ruby/Jekyll build, static files served as is"
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.DEPLOY_TOKEN }}
-        publish_dir: ./_site
+      - name: Disabled job
+        run: echo "This workflow is disabled to avoid conflicts with deploy-github-pages.yml"
