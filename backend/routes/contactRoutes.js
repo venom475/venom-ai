@@ -1,18 +1,25 @@
 const express = require('express');
+const ContactEnquiry = require('../models/ContactEnquiry');
+
 const router = express.Router();
 
-// Placeholder for storing contact messages (in-memory for demo)
-let messages = [];
-
-// POST contact message
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
   const { name, email, message } = req.body;
+
   if (!name || !email || !message) {
-    return res.status(400).json({ error: 'All fields are required' });
+    return res.status(400).json({ error: 'Name, email, and message are required' });
   }
-  // In real app, save to DB or send email
-  messages.push({ name, email, message, date: new Date() });
-  res.json({ message: 'Message received successfully' });
+
+  try {
+    const enquiry = await ContactEnquiry.create({ name, email, message });
+    res.status(201).json({
+      message: 'Enquiry received successfully',
+      enquiryId: enquiry._id
+    });
+  } catch (error) {
+    console.error('Failed to save contact enquiry:', error);
+    res.status(500).json({ error: 'Failed to save enquiry' });
+  }
 });
 
 module.exports = router;

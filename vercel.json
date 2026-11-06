@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://venomware-api.onrender.com/api/:path*"
+    }
+  ]
+}

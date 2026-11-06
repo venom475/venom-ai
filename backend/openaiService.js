@@ -1,11 +1,16 @@
 const https = require('https');
 
-const GOOGLE_GEMINI_API_KEY = "AIzaSyAvlvL9mgwTjjjJeSzsc2ZWyTBceKYnhsI";
+const GOOGLE_GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GOOGLE_GEMINI_API_HOST = "generativelanguage.googleapis.com";
-const GOOGLE_GEMINI_API_PATH = "/v1beta/models/gemini-2.0-flash:generateContent?key=" + GOOGLE_GEMINI_API_KEY;
 
 function generateCode(prompt) {
   return new Promise((resolve, reject) => {
+    if (!GOOGLE_GEMINI_API_KEY) {
+      reject(new Error('GEMINI_API_KEY is not configured'));
+      return;
+    }
+
+    const path = "/v1beta/models/gemini-2.0-flash:generateContent?key=" + encodeURIComponent(GOOGLE_GEMINI_API_KEY);
     const data = JSON.stringify({
       contents: [
         {
@@ -18,7 +23,7 @@ function generateCode(prompt) {
 
     const options = {
       hostname: GOOGLE_GEMINI_API_HOST,
-      path: GOOGLE_GEMINI_API_PATH,
+      path,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

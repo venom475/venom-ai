@@ -7,6 +7,7 @@ const modelRoutes = require('./routes/modelRoutes');
 const userRoutes = require('./routes/userRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+const careerRoutes = require('./routes/careerRoutes');
 const { verify } = require('./oauthConfig');
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -23,7 +24,9 @@ mongoose.connect(MONGODB_URI, {
   console.error('Failed to connect to MongoDB', err);
 });
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_ORIGIN || true
+}));
 app.use(express.json());
 
 // Serve frontend static files from project root
@@ -121,6 +124,7 @@ app.use('/api/users', userRoutes);
 app.use('/api/blog', blogRoutes);
 // Use contact routes for contact management
 app.use('/api/contact', contactRoutes);
+app.use('/api/careers', careerRoutes);
 
 // Catch-all 404 middleware for undefined routes
 app.use((req, res, next) => {

@@ -9,7 +9,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
   }
 
   try {
-    const response = await fetch('http://localhost:8080/api/generate-code', {
+    const response = await fetch('/api/generate-code', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

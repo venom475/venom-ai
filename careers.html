@@ -1,86 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>VenomAI - Careers</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    .glass {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(10px);
-      border-radius: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Careers | Venomware Solutions</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-900 text-white">
-  <!-- Header Section -->
-  <header class="bg-black bg-opacity-70 py-4">
-    <div class="container mx-auto flex items-center justify-between px-4">
-      <div class="text-3xl font-bold text-green-400">VenomAI</div>
-      <nav class="space-x-4">
-        <a href="dashboard.html" class="hover:text-green-400">Home</a>
-        <a href="about.html" class="hover:text-green-400">About</a>
-        <a href="services.html" class="hover:text-green-400">Services</a>
-        <a href="projects.html" class="hover:text-green-400">Projects</a>
-        <a href="testimonials.html" class="hover:text-green-400">Testimonials</a>
-        <a href="blog.html" class="hover:text-green-400">Blog</a>
-        <a href="contact.html" class="hover:text-green-400">Contact</a>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="home.html"><span class="brand-mark">V</span><span>Venomware<small>Solutions</small></span></a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="home.html">Home</a><a href="services.html">Services</a><a href="projects.html">Work</a><a href="about.html">About</a><a href="blog.html">Insights</a>
+        <a class="nav-cta" href="contact.html">Start a project ↗</a>
       </nav>
     </div>
   </header>
-  <section class="py-16 bg-gray-800 glass">
-    <div class="container mx-auto px-4 max-w-3xl">
-      <h2 class="text-4xl font-bold mb-6 text-center">Careers at VenomAI</h2>
-      <p class="text-lg mb-6 text-center">Join our team and help shape the future of AI innovation!</p>
-      <div class="mb-8">
-        <h3 class="text-2xl font-semibold text-green-400 mb-2">Current Openings</h3>
-        <ul class="list-disc list-inside text-gray-300 mb-4">
-          <li>AI Software Engineer</li>
-          <li>Data Scientist</li>
-          <li>Frontend Developer</li>
-          <li>Product Manager</li>
-        </ul>
-        <h4 class="text-xl font-semibold text-green-300 mb-1">Job Description & Requirements</h4>
-        <p class="mb-2">We are looking for talented individuals passionate about AI, software development, and innovation. Requirements include:</p>
-        <ul class="list-disc list-inside text-gray-300 mb-4">
-          <li>Bachelor's degree in Computer Science or related field</li>
-          <li>Experience with AI/ML frameworks</li>
-          <li>Strong problem-solving skills</li>
-          <li>Excellent communication and teamwork</li>
-        </ul>
-        <p class="mb-4">Job Role: Collaborate with cross-functional teams to design, develop, and deploy AI-powered solutions for our clients.</p>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">Build your future here</div>
+        <h1>Do work that<br>moves people forward.</h1>
+        <p>Join a growing team of developers, designers, strategists, and curious thinkers building software with real purpose.</p>
       </div>
-      <form class="glass p-6 rounded-lg" action="dashboard.html" method="POST" enctype="multipart/form-data" onsubmit="window.location.href='dashboard.html'; return false;">
-        <h4 class="text-xl font-semibold text-green-400 mb-4">Apply Now</h4>
-        <div class="mb-4">
-          <label for="name" class="block text-sm font-medium mb-2">Full Name</label>
-          <input type="text" id="name" name="name" class="w-full p-3 rounded-lg bg-gray-700 text-white" required>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+        <div>
+          <span class="tag">Why Venomware</span>
+          <h2 style="margin-top:18px">Bring your perspective. Make your mark.</h2>
         </div>
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium mb-2">Email</label>
-          <input type="email" id="email" name="email" class="w-full p-3 rounded-lg bg-gray-700 text-white" required>
+        <div class="prose">
+          <p>We believe the best work comes from people who are trusted to think clearly, challenge assumptions, and take ownership. You’ll work on meaningful client problems with a team that values craft, curiosity, and momentum.</p>
+          <ul class="pill-list">
+            <li>Real projects with real-world impact</li>
+            <li>Learning, mentorship, and room to grow</li>
+            <li>A collaborative team that takes care of the details</li>
+          </ul>
         </div>
-        <div class="mb-4">
-          <label for="resume" class="block text-sm font-medium mb-2">Upload Resume</label>
-          <input type="file" id="resume" name="resume" class="w-full p-3 rounded-lg bg-gray-700 text-white" required>
+      </div>
+    </section>
+
+    <section class="section section-dark">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Opportunities</div>
+          <h2 style="margin-top:16px">Find your next challenge.</h2>
+          <p>We’re always interested in meeting thoughtful people who want to build useful, ambitious software.</p>
         </div>
-        <div class="mb-4">
-          <label for="details" class="block text-sm font-medium mb-2">Additional Details</label>
-          <textarea id="details" name="details" class="w-full p-3 rounded-lg bg-gray-700 text-white" rows="4" placeholder="Tell us about yourself"></textarea>
+        <div class="cards">
+          <article class="card dark-card"><div class="card-icon">01</div><h3>Software engineering</h3><p>Build reliable web platforms, APIs, cloud systems, and AI-powered products for ambitious businesses.</p></article>
+          <article class="card dark-card"><div class="card-icon">02</div><h3>Product & design</h3><p>Turn complex needs into clear experiences through research, strategy, interaction, and visual design.</p></article>
+          <article class="card dark-card"><div class="card-icon">03</div><h3>Internships & training</h3><p>Get hands-on experience, learn from experienced teammates, and contribute to work that ships.</p></article>
         </div>
-        <button type="submit" class="w-full py-3 bg-green-400 text-black font-bold rounded-lg hover:bg-green-500">Submit Application</button>
-      </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <div>
+          <span class="tag">Start a conversation</span>
+          <h2 style="margin-top:18px">Don’t see your role?</h2>
+          <p class="prose">Send us your details anyway. If your skills and ambition align with what we’re building, we’d love to hear from you.</p>
+        </div>
+        <div class="form-card">
+          <form id="career-form">
+            <div class="form-grid">
+              <div class="field"><label for="name">Full name</label><input id="name" name="name" type="text" placeholder="Your name" required></div>
+              <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" required></div>
+            </div>
+            <div class="field"><label for="role">Area of interest</label><select id="role" name="role"><option>Software engineering</option><option>Product & design</option><option>Internship or training</option><option>Something else</option></select></div>
+            <div class="field"><label for="details">Tell us about yourself</label><textarea id="details" name="details" placeholder="What do you enjoy building? What are you looking to learn?"></textarea></div>
+            <button class="button button-primary" type="submit">Send application ↗</button>
+            <p id="career-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><a class="brand" href="home.html"><span class="brand-mark">V</span><span>Venomware<small>Solutions</small></span></a><p>Future-ready software, engineered around your ambition.</p></div>
+      <div><h3>Explore</h3><ul><li><a href="services.html">Services</a></li><li><a href="projects.html">Our work</a></li><li><a href="about.html">About us</a></li></ul></div>
+      <div><h3>Connect</h3><ul><li><a href="contact.html">Start a project</a></li><li><a href="careers.html">Careers</a></li><li><a href="blog.html">Insights</a></li></ul></div>
+      <div><h3>Our promise</h3><p>Innovation with precision. Delivery with purpose.</p></div>
     </div>
-  </section>
-  <footer class="py-6 bg-black text-gray-500 text-center">
-    <div class="mb-2">
-      <a href="careers.html" class="hover:text-green-400 mx-2">Careers</a> |
-      <a href="privacy-policy.html" class="hover:text-green-400 mx-2">Privacy Policy</a>
-    </div>
-    <p>© 2025 VenomAI. All Rights Reserved. | "Our company is You and I"</p>
+    <div class="container footer-bottom">© 2026 Venomware Solutions. All rights reserved.</div>
   </footer>
+  <script src="js/careers.js"></script>
 </body>
 </html>
